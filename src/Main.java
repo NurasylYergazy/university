@@ -1,21 +1,27 @@
 public class Main {
     public static void main(String[] args) {
 
+        University u = new University("Astana IT University", "Astana");
+
         Course c1 = new Course("Java Programming", 5);
         Course c2 = new Course("Web Development", 4);
 
         Professor p = new Professor("Dr. John Smith", "Computer Science");
-        University u = new University("Astana IT University", "Astana");
+        Student s = new Student("Alice Brown", 2);
 
-        System.out.println(c1);
-        System.out.println(c2);
-        System.out.println(p);
+        u.addCourse(c1);
+        u.addCourse(c2);
+
+        u.addPerson(p);
+        u.addPerson(s);
+
         System.out.println(u);
 
-        if (c1.getCredits() > c2.getCredits()) {
-            System.out.println(c1.getName() + " has more credits");
-        } else {
-            System.out.println(c2.getName() + " has more credits");
-        }
+        System.out.println("Search person: " +
+                u.findPersonByName("Alice Brown"));
+
+        u.sortCoursesByCredits();
+        System.out.println("After sorting:");
+        System.out.println(u);
     }
 }
